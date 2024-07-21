@@ -1,6 +1,8 @@
 # this file contains the class user and all of its methods
 
 class user: 
+    
+    username_log = []
 
     def __init__(self, firstName=None, lastName=None, username=None, ID=None, email=None, Bio=None)->None:
         self.firstName = firstName
@@ -9,7 +11,11 @@ class user:
         self.ID = ID
         self.email = email
         self.Bio = Bio
-        self.username_log = []
+
+        if username is not None:
+            user.username_log.append(username)
+        else:
+            raise ValueError(f"username: {username} is already taken")
         pass
 
     def displayUser(self):
@@ -30,6 +36,14 @@ class user:
         self.ID = input("Please enter your ID: ")
         self.email = input("Please enter your email: ")
         self.Bio = input("Please enter your Bio: ")
+    
+    @classmethod
+    def getListUsers(cls):
 
-User1 = user()
-User1.createUser()
+        return cls.username_log
+
+user1 = user("james", "bond","007", "A189", "james_bond@gmail.com", "I am the king")
+user2 = user("coco", "lolo", "coco_lolo", "A432", "coco_lolo@gmail.com", "I am the queen")
+user3 = user("bobo", "talal", "bobo_talal", "A8493", "bobo_talal@gmail.com", "I am the chaser")
+
+print(user.getListUsers())
