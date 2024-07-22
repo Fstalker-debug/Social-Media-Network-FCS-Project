@@ -11,6 +11,7 @@ class user:
         self.ID = ID
         self.email = email
         self.Bio = Bio
+        self.FriendList = []
 
         if username is not None:
             user.username_log.append(username)
@@ -41,9 +42,32 @@ class user:
     def getListUsers(cls):
 
         return cls.username_log
+    
+    def addFriend(self, user1, user2):
+        
+        if user1 not in self.FriendList and user2 not in self.FriendList:
+            
+            self.FriendList.append(user2)
 
-user1 = user("james", "bond","007", "A189", "james_bond@gmail.com", "I am the king")
-user2 = user("coco", "lolo", "coco_lolo", "A432", "coco_lolo@gmail.com", "I am the queen")
-user3 = user("bobo", "talal", "bobo_talal", "A8493", "bobo_talal@gmail.com", "I am the chaser")
+    def rmvFriend(self, user1, user2):
 
-print(user.getListUsers())
+        if user1 in self.FriendList and user2 in self.FriendList:
+            pass
+
+    def userFriendList(self, username):
+
+        if username in self.username_log:
+            return self.FriendList() ## will it give the list of Friends just for this username
+        pass
+
+################################################
+## TESTING ###########                          #
+################################################
+
+user1 = user("bob","james","bob_james","B283","bob_james@gmail.com","Hello world")
+user2 = user("lolipop","lebron","lebron_lolipop","B293","lebron_lolipop@gmail.com","HI lolo world")
+user3 = user("Brian","kpop","brian_kpop","B285","brian_kpop@gmail.com","I am sexy")
+user4 = user("Smith","kurky","smith_kurky","B383","smith_kurky@gmail.com","Hola world")
+user5 = user("Barron","Trump","Barron Tr","B283","Barron_trump@hotmail.com","I am the president of the united states of America")
+
+print(user5.displayUser())
