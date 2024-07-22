@@ -75,9 +75,6 @@ user3 = user("Brian","kpop","brian_kpop","B285","brian_kpop@gmail.com","I am sex
 user4 = user("Smith","kurky","smith_kurky","B383","smith_kurky@gmail.com","Hola world",["bob_james"])
 user5 = user("Barron","Trump","Barron Tr","B283","Barron_trump@hotmail.com","I am the president of the united states of America",["brian_kpop"])
 
-print(user5.displayUser())
-
-user1.addFriend(user2.username)
 
 print(user1.FriendList) ## because i am printing it directly i am not getting the result i want
 
