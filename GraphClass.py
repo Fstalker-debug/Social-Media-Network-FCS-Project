@@ -53,6 +53,35 @@ class graph:
                     visited[neighbor] = True
 
 
+    # A function used by DFS
+    def DFSUtil(self, user, visited):
+ 
+        # Mark the current node as visited
+        # and print it
+        visited.add(user)
+        print(user, end=' ')
+ 
+        # Recur for all the vertices
+        # adjacent to this vertex
+        for neighbour in self.graph[user]:
+            if neighbour not in visited:
+                self.DFSUtil(neighbour, visited)
+ 
+     
+    # The function to do DFS traversal. It uses
+    # recursive DFSUtil()
+    def DFS(self, user):
+ 
+        # Create a set to store visited vertices
+        visited = set()
+ 
+        # Call the recursive helper function
+        # to print DFS traversal
+        self.DFSUtil(user, visited)
+
+
+
+
     def displayConnections(self):
 
         return self.graph
@@ -96,4 +125,6 @@ print(network_graph.showcreatedUsers())
 ## implementation for my BFS algorithm
 vertices = network_graph.numberofusers
 network_graph.BFS("user1")
+
+network_graph.DFS("user1")
 
