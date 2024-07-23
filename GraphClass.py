@@ -11,6 +11,10 @@ class graph:
             self.vertices.append(user)
             self.graph[user] = []
 
+    def rmvUserfromGraph(self, user1):
+
+        self.vertices.remove(user1)
+
     def addConnection(self, user1, user2):
         
         if user1 in self.vertices and user2 in self.vertices:
@@ -24,6 +28,10 @@ class graph:
             self.graph[user1].remove(user2)
         pass
 
+    def showcreatedUsers(self):
+
+        return self.vertices
+
     def displayConnections(self):
 
         return self.graph
@@ -36,15 +44,25 @@ class graph:
 ###########
 
 network_graph = graph()
+
 ## add users to the graph (adding vertices)
+
 network_graph.addUserToGraph("user1")
 network_graph.addUserToGraph("user2")
 network_graph.addUserToGraph("user3")
 network_graph.addUserToGraph("user4")
+
 ## add connections/edges between users
+
 network_graph.addConnection("user1" , "user2")
 network_graph.addConnection("user2" ,"user3")
 network_graph.addConnection("user2" ,"user4")
 
 print(network_graph.displayConnections())
 
+
+print(network_graph.showcreatedUsers())
+
+network_graph.rmvUserfromGraph("user3")
+
+print(network_graph.showcreatedUsers())
