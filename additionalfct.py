@@ -42,3 +42,17 @@ print(sorted_usernames_by_name)
 sorted_usernames_by_username = sortingUsers(users_list, 'username')
 print("\nUsers sorted by username:")
 print(sorted_usernames_by_username)
+
+
+##### searching algorithm 
+user_ll = [testuser,testuser1,testuser2,testuser3,testuser4]
+
+def search(lst , attribute):
+
+    for i in range(len(user_ll)):
+        x = user_ll[i]
+        if x.username == attribute:
+            return x.displayUser()
+        
+result = search(user_ll, "smith_kurky")
+print(result)
