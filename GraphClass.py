@@ -31,6 +31,24 @@ class graph:
     def showcreatedUsers(self):
 
         return self.vertices
+    
+    def BFS(self, start_node, visited):
+
+        q = []
+        q.append(start_node)
+
+        while q:
+
+            current_node = q.pop()
+            print(current_node)
+            visited[current_node] = True
+
+            for neighbor in self.graph:
+
+                if neighbor not in visited.get(neighbor, False):
+
+                    q.append(neighbor)
+                    visited[neighbor] = True
 
     def displayConnections(self):
 
