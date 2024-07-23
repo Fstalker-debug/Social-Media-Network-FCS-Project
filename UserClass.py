@@ -38,7 +38,7 @@ class user:
     def createUser(self):
         self.firstName = input("Please enter your First Name: ")
         self.lastName = input("Please enter your Last Name: ")
-        self.username = self.createUsername()
+        self.username = self.createUsername(user)
         self.ID = input("Please enter your ID: ")
         self.email = input("Please enter your email: ")
         self.Bio = input("Please enter your Bio: ")
@@ -83,3 +83,9 @@ print(user1.showFriends())
 user1.addFriend("brian_kpop")
 
 print(user1.showFriends())
+
+
+## test the create a user method 
+
+x = user.createUser(user)
+
