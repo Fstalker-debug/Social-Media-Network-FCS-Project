@@ -37,25 +37,7 @@ class graph:
 
         return self.vertices
     
-    def BFS(self, start_node, visited):
-
-        q = deque()
-        q.append(start_node)
-        visited[start_node] = True
-
-        while q:
-
-            current_node = q.popleft()
-            print(current_node, end="")
-
-            for neighbor in self.graph:
-
-                if neighbor not in visited.get(neighbor, False):
-
-                    q.append(neighbor)
-                    visited[neighbor] = True
-    
-    def BFS2(self, start_node):
+    def BFS(self, start_node):
         visited = {node: False for node in self.vertices}
         q = deque()
         q.append(start_node)
@@ -113,5 +95,5 @@ print(network_graph.showcreatedUsers())
 
 ## implementation for my BFS algorithm
 vertices = network_graph.numberofusers
-network_graph.BFS2("user1")
+network_graph.BFS("user1")
 
