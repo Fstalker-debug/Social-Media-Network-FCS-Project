@@ -1,5 +1,9 @@
+from collections import deque
+
 class graph:
-    
+
+    numberofusers = 0
+
     def __init__(self):
 
         self.vertices = []
@@ -10,6 +14,7 @@ class graph:
         if user not in self.vertices:
             self.vertices.append(user)
             self.graph[user] = []
+            self.numberofusers += 1
 
     def rmvUserfromGraph(self, user1):
 
@@ -34,14 +39,14 @@ class graph:
     
     def BFS(self, start_node, visited):
 
-        q = []
+        q = deque()
         q.append(start_node)
+        visited[start_node] = True
 
         while q:
 
-            current_node = q.pop()
-            print(current_node)
-            visited[current_node] = True
+            current_node = q.popleft()
+            print(current_node, end="")
 
             for neighbor in self.graph:
 
@@ -49,10 +54,31 @@ class graph:
 
                     q.append(neighbor)
                     visited[neighbor] = True
+    
+    def BFS2(self, start_node):
+        visited = {node: False for node in self.vertices}
+        q = deque()
+        q.append(start_node)
+        visited[start_node] = True
+
+        while q:
+            current_node = q.popleft()
+            print(current_node, end=" ")
+
+            for neighbor in self.graph[current_node]:
+                if not visited[neighbor]:
+                    q.append(neighbor)
+                    visited[neighbor] = True
+
 
     def displayConnections(self):
 
         return self.graph
+    
+    @classmethod
+    def nb_vertices(cls):
+
+        return cls.numberofusers
 
 
 
@@ -81,6 +107,11 @@ print(network_graph.displayConnections())
 
 print(network_graph.showcreatedUsers())
 
-network_graph.rmvUserfromGraph("user3")
+# network_graph.rmvUserfromGraph("user3")
 
-print(network_graph.showcreatedUsers())
+# print(network_graph.showcreatedUsers())
+
+## implementation for my BFS algorithm
+vertices = network_graph.numberofusers
+network_graph.BFS2("user1")
+
