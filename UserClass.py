@@ -87,5 +87,5 @@ print(user1.showFriends())
 
 ## test the create a user method 
 
-x = user.createUser(user)
+# x = user.createUser(user)
 
