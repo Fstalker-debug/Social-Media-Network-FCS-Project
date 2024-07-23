@@ -53,30 +53,24 @@ class graph:
                     visited[neighbor] = True
 
 
-    # A function used by DFS
+    # A helper function for DFS function
     def DFSUtil(self, user, visited):
  
-        # Mark the current node as visited
-        # and print it
+        # Mark the current node as visited and it will print it
         visited.add(user)
         print(user, end=' ')
- 
-        # Recur for all the vertices
-        # adjacent to this vertex
+
         for neighbour in self.graph[user]:
             if neighbour not in visited:
                 self.DFSUtil(neighbour, visited)
  
      
-    # The function to do DFS traversal. It uses
-    # recursive DFSUtil()
+    # Depth-first search algorithm
     def DFS(self, user):
  
         # Create a set to store visited vertices
         visited = set()
  
-        # Call the recursive helper function
-        # to print DFS traversal
         self.DFSUtil(user, visited)
 
 
