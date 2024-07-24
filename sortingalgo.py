@@ -8,8 +8,8 @@ testuser3 = user("Smith", "kurky", "smith_kurky", "B383", "smith_kurky@gmail.com
 testuser4 = user("Barron", "Trump", "Barron Tr", "B283", "Barron_trump@hotmail.com", "I am the president of the united states of America", ["brian_kpop"])
 
 ltl = [testuser1, testuser, testuser2, testuser3, testuser4]
-
-def easy_sorting(lst, firstName):
+### sort users by their firstName
+def firstName_sorting(lst, firstName):
     tnt = []
     for i in range(len(lst)):
         temp = lst[i].firstName
@@ -17,9 +17,9 @@ def easy_sorting(lst, firstName):
 
     return sorted(tnt)
 
-print(easy_sorting(ltl, "firstName"))
+print(firstName_sorting(ltl, "firstName"))
 
-
+### sort users by their ID
 def ID_sorting(lst, ID):
     tnt = []
     for i in range(len(lst)):

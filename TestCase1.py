@@ -363,3 +363,5 @@ SocialNetworkWeb.addConnection("user71","user98")
 SocialNetworkWeb.displayConnections()
 
 ## try DFS on the new graph 
+
+SocialNetworkWeb.DFS(user1)
