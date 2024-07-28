@@ -110,7 +110,7 @@ user100 = user("Erik", "Fisher", "E_fisher", "B481", "erik.fisher@gmail.com", "r
 
 SocialNetworkWeb = Graph()
 
-SocialNetworkWeb.addUserToGraph(user1.username)
+SocialNetworkWeb.addUserToGraph("user1")
 SocialNetworkWeb.addUserToGraph("user2")
 SocialNetworkWeb.addUserToGraph("user3")
 SocialNetworkWeb.addUserToGraph("user4")
@@ -213,12 +213,12 @@ SocialNetworkWeb.addUserToGraph("user100")
 
 
 
-SocialNetworkWeb.addConnection(user1.username, "user2")
-SocialNetworkWeb.addConnection(user1.username,"user3")
-SocialNetworkWeb.addConnection(user1.username, "user47")
-SocialNetworkWeb.addConnection(user1.username, "user52")
-SocialNetworkWeb.addConnection(user1.username, "user23")
-SocialNetworkWeb.addConnection(user1.username, "user35")
+SocialNetworkWeb.addConnection("user1", "user2")
+SocialNetworkWeb.addConnection("user1","user3")
+SocialNetworkWeb.addConnection("user1", "user47")
+SocialNetworkWeb.addConnection("user1", "user52")
+SocialNetworkWeb.addConnection("user1", "user23")
+SocialNetworkWeb.addConnection("user1", "user35")
 SocialNetworkWeb.addConnection("user2", "user39")
 SocialNetworkWeb.addConnection("user2", "user9")
 SocialNetworkWeb.addConnection("user2", "user17")
@@ -360,6 +360,6 @@ SocialNetworkWeb.addConnection("user71","user98")
 
 ## visualize the graph using an internal method
 
-SocialNetworkWeb.dijkstra("user3")
+SocialNetworkWeb.dijkstra("user1")
 
 ## try DFS on the new graph 
