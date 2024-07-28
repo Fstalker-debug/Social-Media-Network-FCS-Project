@@ -360,6 +360,6 @@ SocialNetworkWeb.addConnection("user71","user98")
 
 ## visualize the graph using an internal method
 
-print(SocialNetworkWeb.displayConnections())
+SocialNetworkWeb.dijkstra("user3")
 
 ## try DFS on the new graph 

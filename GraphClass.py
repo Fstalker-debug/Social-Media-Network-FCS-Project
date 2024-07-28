@@ -91,23 +91,20 @@ class Graph:
         distances = {user: float('inf') for user in self.vertices}
         distances[start_user] = 0
 
-        # Use a priority queue to store (distance, vertex) tuples
+        # List to act as the priority queue
         priority_queue = [(0, start_user)]
 
         while priority_queue:
-            current_distance, current_user = heapq.heappop(priority_queue)
+            # Extract the user with the smallest distance
+            priority_queue.sort(key=lambda x: x[0])  # Sort by distance
+            current_distance, current_user = priority_queue.pop(0)
 
-            # If a shorter path to current_user is already known, skip it
-            if current_distance > distances[current_user]:
-                continue
-
+            # Update distances for neighbors
             for neighbor, weight in self.graph[current_user]:
                 distance = current_distance + weight
-
-                # Only consider this new path if it's better
                 if distance < distances[neighbor]:
                     distances[neighbor] = distance
-                    heapq.heappush(priority_queue, (distance, neighbor))
+                    priority_queue.append((distance, neighbor))
 
         return distances
    
