@@ -1,19 +1,17 @@
 from collections import deque
 
-class graph:
-    
-    # defined the two components of graph 
+
+class Graph:
+
     def __init__(self):
         self.vertices = []
         self.graph = {}
-    
-    # this method add a predefined user to the graph and create a new entry in the graph dictionary
+
     def addUserToGraph(self, user):
         if user not in self.vertices:
             self.vertices.append(user)
             self.graph[user] = []
 
-    # first we check if the user is present in the graph, 
     def remove_user(self, user):
         if user in self.vertices:
             self.vertices.remove(user)
@@ -22,7 +20,7 @@ class graph:
                 if user in connections:
                     connections.remove(user)
 
-    def addConnection(self, user1, user2):
+    def addConnection(self, user1: str, user2: str):
         if user1 in self.vertices and user2 in self.vertices:
             if user2 not in self.graph[user1]:
                 self.graph[user1].append(user2)
@@ -38,7 +36,7 @@ class graph:
 
     def show_created_users(self):
         return self.vertices
-    
+
     def bfs(self, start_node):
         if start_node not in self.vertices:
             print("Start node not in graph")
@@ -58,15 +56,15 @@ class graph:
                     visited[neighbor] = True
         print()
 
-    def DFS_UTIL(self, user, visited):
+    def dfs_util(self, user, visited):
         visited.add(user)
         print(user, end=' ')
 
-        for neighbour in self.graph[user]:
-            if neighbour not in visited:
-                self.dfs_util(neighbour, visited)
+        for neighbor in self.graph[user]:
+            if neighbor not in visited:
+                self.dfs_util(neighbor, visited)
 
-    def DFS(self, user):
+    def dfs(self, user):
         if user not in self.vertices:
             print("Start node not in graph")
             return
@@ -75,11 +73,22 @@ class graph:
         print()
 
     def displayConnections(self):
-        for user, connections in self.graph.items():
-            print(f"{user} is connected to: {', '.join(connections)}")
+        connections = {}
+        for node, neighbors in self.graph.items():
+            connections[node] = list(neighbors)
+        return connections
 
     @property
     def number_of_users(self):
         return len(self.vertices)
-    
+   
+# g = Graph()
+# g.addUserToGraph("joujou")
+# g.addUserToGraph("loulou")
+# g.addUserToGraph("coco")
+# g.addConnection("coco", "joujou")
+# g.addConnection("coco", "loulou")
+# g.addConnection("loulou", "joujou")
 
+# print(g.show_created_users())
+# print(g.displayConnections())
