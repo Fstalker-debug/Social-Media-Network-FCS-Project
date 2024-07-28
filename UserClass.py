@@ -21,9 +21,6 @@ class user:
             raise ValueError(f"username: {username} is already taken")
         pass
 
-    def showFriends(self):
-        return f"{self.firstName} friend list is {self.FriendList}"
-
     def displayUser(self):
 
         return "firstname: " + self.firstName + "\n" + "lastName: " + self.lastName + "\n" + "UserName: " + self.username + "\n" + "Bio: " + self.Bio
@@ -64,28 +61,4 @@ class user:
             
             return self.FriendList ## will it give the list of Friends just for this username
         
-
-################################################
-## TESTING ###########                          #
-################################################
-
-user1 = user("bob","james","bob_james","B283","bob_james@gmail.com","Hello world",["lebron_lolipop"])
-user2 = user("lolipop","lebron","lebron_lolipop","B293","lebron_lolipop@gmail.com","HI lolo world",["smith_kurky"])
-user3 = user("Brian","kpop","brian_kpop","B285","brian_kpop@gmail.com","I am sexy",["Barron Tr"])
-user4 = user("Smith","kurky","smith_kurky","B383","smith_kurky@gmail.com","Hola world",["bob_james"])
-user5 = user("Barron","Trump","Barron Tr","B283","Barron_trump@hotmail.com","I am the president of the united states of America",["brian_kpop"])
-
-
-print(user1.FriendList) ## because i am printing it directly i am not getting the result i want
-
-print(user1.showFriends())
-# user1.addFriend(user2.username) => doesn't work
-user1.addFriend("brian_kpop")
-
-print(user1.showFriends())
-
-
-## test the create a user method 
-
-# x = user.createUser(user)
 
