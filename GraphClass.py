@@ -81,6 +81,35 @@ class Graph:
     @property
     def number_of_users(self):
         return len(self.vertices)
+    
+    def dijkstra(self, start_user):
+        if start_user not in self.vertices:
+            print("Start node not in graph")
+            return
+
+        # Initialize distances with infinity and set the distance to the start_user to zero
+        distances = {user: float('inf') for user in self.vertices}
+        distances[start_user] = 0
+
+        # Use a priority queue to store (distance, vertex) tuples
+        priority_queue = [(0, start_user)]
+
+        while priority_queue:
+            current_distance, current_user = heapq.heappop(priority_queue)
+
+            # If a shorter path to current_user is already known, skip it
+            if current_distance > distances[current_user]:
+                continue
+
+            for neighbor, weight in self.graph[current_user]:
+                distance = current_distance + weight
+
+                # Only consider this new path if it's better
+                if distance < distances[neighbor]:
+                    distances[neighbor] = distance
+                    heapq.heappush(priority_queue, (distance, neighbor))
+
+        return distances
    
 # g = Graph()
 # g.addUserToGraph("joujou")
