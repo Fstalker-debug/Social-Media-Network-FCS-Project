@@ -27,4 +27,5 @@ def ID_sorting(lst, ID):
         tnt.append(temp)
     return sorted(tnt)
 
-print(ID_sorting(ltl, "ID"))
+# print(ID_sorting(ltl, "ID"))
+# print(firstName_sorting(ltl,"firstName"))
