@@ -1,4 +1,5 @@
 from collections import deque
+import heapq
 
 
 class Graph:
@@ -81,7 +82,7 @@ class Graph:
     @property
     def number_of_users(self):
         return len(self.vertices)
-    
+
     def dijkstra(self, start_user):
         if start_user not in self.vertices:
             print("Start node not in graph")
@@ -99,12 +100,16 @@ class Graph:
             priority_queue.sort(key=lambda x: x[0])  # Sort by distance
             current_distance, current_user = priority_queue.pop(0)
 
+            # Debug print to check the current user and its connections
+            print(f"Processing user: {current_user}, Current distance: {current_distance}")
+            print(f"Connections: {self.graph[current_user]}")
+
             # Update distances for neighbors
-            for neighbor, weight in self.graph[current_user]:
-                distance = current_distance + weight
-                if distance < distances[neighbor]:
-                    distances[neighbor] = distance
-                    priority_queue.append((distance, neighbor))
+            # for neighbor, weight in self.graph[current_user]:
+            #     distance = current_distance + weight
+            #     if distance < distances[neighbor]:
+            #         distances[neighbor] = distance
+            #         priority_queue.append((distance, neighbor))
 
         return distances
    
